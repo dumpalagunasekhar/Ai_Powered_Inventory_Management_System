@@ -1,6 +1,8 @@
 package com.inventory.management.controller;
 
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
+
 import java.util.*;
 
 import com.inventory.management.entity.*;
@@ -33,7 +35,7 @@ public class ProductController {
 	}
 	
 	@PostMapping
-	public String addProducts(@RequestBody Product product) {
+	public String addProducts(@Valid @RequestBody Product product) {
 		
 		productService.addProduct(product);
 		return "Product recived";
